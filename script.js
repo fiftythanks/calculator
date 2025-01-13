@@ -22,3 +22,122 @@ function operate(number1, number2, operator) {
   return operator(number1, number2);
 }
 
+const buttons = {};
+Array.from(document.querySelectorAll("button")).forEach((button) => {
+  button.addEventListener("click", pressButton);
+  buttons[button.id] = button;
+});
+
+const display = document.querySelector("#display").firstElementChild;
+
+let float = 0;
+function pressButton(e) {
+  if (display.textContent.length < 12) {
+    switch (e.target) {
+      case buttons.nought:
+        if (display.textContent === "0") {
+          break;
+        } else {
+          display.textContent += "0";
+          break;
+        }
+      case buttons.one:
+        if (display.textContent === "0") {
+          display.textContent = "1";
+        } else {
+          display.textContent += "1";
+        }
+        break;
+      case buttons.two:
+        if (display.textContent === "0") {
+          display.textContent = "2";
+        } else {
+          display.textContent += "2";
+        }
+        break;
+      case buttons.three:
+        if (display.textContent === "0") {
+          display.textContent = "3";
+        } else {
+          display.textContent += "3";
+        }
+        break;
+      case buttons.four:
+        if (display.textContent === "0") {
+          display.textContent = "4";
+        } else {
+          display.textContent += "4";
+        }
+        break;
+      case buttons.five:
+        if (display.textContent === "0") {
+          display.textContent = "5";
+        } else {
+          display.textContent += "5";
+        }
+        break;
+      case buttons.six:
+        if (display.textContent === "0") {
+          display.textContent = "6";
+        } else {
+          display.textContent += "6";
+        }
+        break;
+      case buttons.seven:
+        if (display.textContent === "0") {
+          display.textContent = "7";
+        } else {
+          display.textContent += "7";
+        }
+        break;
+      case buttons.eight:
+        if (display.textContent === "0") {
+          display.textContent = "8";
+        } else {
+          display.textContent += "8";
+        }
+        break;
+      case buttons.nine:
+        if (display.textContent === "0") {
+          display.textContent = "9";
+        } else {
+          display.textContent += "9";
+        }
+        break;
+      case buttons.dot:
+        if (float === 0) {
+          display.textContent += ".";
+          float = 1;
+        }
+        break;
+    }
+  }
+  switch (e.target) {
+    case buttons.clear:
+      float = 0;
+      display.textContent = 0;
+      break;
+    case buttons.plus:
+      float = 0;
+      display.textContent = 0;
+      break;
+    case buttons.minus:
+      float = 0;
+      display.textContent = 0;
+      break;
+    case buttons.multiply:
+      float = 0;
+      display.textContent = 0;
+      break;
+    case buttons.divide:
+      float = 0;
+      display.textContent = 0;
+      break;
+    case buttons.equal:
+      float = 0;
+      // add functionality
+      break;
+
+  }
+
+}
