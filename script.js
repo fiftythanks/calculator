@@ -30,8 +30,18 @@ Array.from(document.querySelectorAll("button")).forEach((button) => {
 
 const display = document.querySelector("#display").firstElementChild;
 
+let result;
 let float = 0;
 function pressButton(e) {
+  if (result !== undefined) {
+    number1 = undefined;
+    number2 = undefined;
+    operator = undefined;
+    result = undefined;
+    float = 0;
+    display.textContent = 0;
+  } 
+  
   if (display.textContent.length < 12) {
     switch (e.target) {
       case buttons.nought:
@@ -117,6 +127,7 @@ function pressButton(e) {
       number1 = undefined;
       number2 = undefined;
       operator = undefined;
+      result = undefined;
       float = 0;
       display.textContent = 0;
       break;
@@ -172,16 +183,22 @@ function pressButton(e) {
         display.textContent = 0;
         break;
       }
+      // 
     case buttons.equal:
       if (!number1 || !operator) {
         break;
       } else if (!number2) {
         number2 = parseFloat(display.textContent);
-        result = operate(number1, number2, operator);
-        if (result.toString().length <= 12) {
-          display.textContent = result;
+        if (operator === divide && number2 === 0) {
+          result = NaN;
+          display.textContent = "NaN";
         } else {
-          display.textContent = result.toExponential(2);
+          result = operate(number1, number2, operator);
+          if (result.toString().length <= 12) {
+            display.textContent = result;
+          } else {
+            display.textContent = result.toExponential(2);
+          }
         }
       }
       break;
