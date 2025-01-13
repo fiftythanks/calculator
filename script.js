@@ -114,30 +114,77 @@ function pressButton(e) {
   }
   switch (e.target) {
     case buttons.clear:
+      number1 = undefined;
+      number2 = undefined;
+      operator = undefined;
       float = 0;
       display.textContent = 0;
       break;
     case buttons.plus:
-      float = 0;
-      display.textContent = 0;
-      break;
+      if (operator === add) {
+        break;
+      } else if (operator) {
+        operator = add;
+        break;
+      } else {
+        number1 = parseFloat(display.textContent);
+        operator = add;
+        float = 0;
+        display.textContent = 0;
+        break;
+      }
     case buttons.minus:
-      float = 0;
-      display.textContent = 0;
-      break;
+      if (operator === subtract) {
+        break;
+      } else if (operator) {
+        operator = subtract;
+        break;
+      } else {
+        number1 = parseFloat(display.textContent);
+        operator = subtract;
+        float = 0;
+        display.textContent = 0;
+        break;
+      }
     case buttons.multiply:
-      float = 0;
-      display.textContent = 0;
-      break;
+      if (operator === multiply) {
+        break;
+      } else if (operator) {
+        operator = multiply;
+        break;
+      } else {
+        number1 = parseFloat(display.textContent);
+        operator = multiply;
+        float = 0;
+        display.textContent = 0;
+        break;
+      }
     case buttons.divide:
-      float = 0;
-      display.textContent = 0;
-      break;
+      if (operator === divide) {
+        break;
+      } else if (operator) {
+        operator = divide;
+        break;
+      } else {
+        number1 = parseFloat(display.textContent);
+        operator = divide;
+        float = 0;
+        display.textContent = 0;
+        break;
+      }
     case buttons.equal:
-      float = 0;
-      // add functionality
+      if (!number1 || !operator) {
+        break;
+      } else if (!number2) {
+        number2 = parseFloat(display.textContent);
+        result = operate(number1, number2, operator);
+        if (result.toString().length <= 12) {
+          display.textContent = result;
+        } else {
+          display.textContent = result.toExponential(2);
+        }
+      }
       break;
-
   }
 
 }
