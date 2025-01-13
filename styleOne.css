@@ -1,0 +1,48 @@
+@font-face {
+  font-family: calculator;
+  src: url("digital-7/digital-7.ttf");
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#display {
+  font-family: calculator;
+  text-align: right;
+  font-size: 52px;
+
+  & > p {
+    margin: 0;
+  }
+}
+
+#numpad {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.row {
+  display: flex;
+  gap: 0.2em;
+  justify-content: center;
+}
+
+button {
+  font-size: 48px;
+  margin: 0;
+  padding: 0;
+  flex: 1 0 1.5em;
+}
