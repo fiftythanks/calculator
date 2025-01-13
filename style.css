@@ -21,7 +21,7 @@ body {
 #calculator {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
   width: var(--calculator-width);
   padding: 1.8rem;
   border-radius: 15px;
@@ -56,6 +56,10 @@ body {
   justify-content: center;
 }
 
+#special-row {
+  justify-content: flex-end;
+}
+
 button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 3rem;
@@ -76,4 +80,19 @@ button {
 
 #equal {
   background-color: #F19C32;
+}
+
+#clear {
+  flex: 0 0 calc((var(--calculator-width) - var(--button-gap) * 3) / 4);
+  background-color: #F19C32;
+}
+
+#name {
+  font-family: "Herr Von Muellerhoff";
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  flex: 0 0 calc((var(--calculator-width) - var(--button-gap) * 3) * 3 / 4 + var(--button-gap) * 2);
+  align-self: center;
+  margin: 0;
 }
