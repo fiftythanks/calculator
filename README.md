@@ -1,2 +1,2 @@
-# calculator
+# Calculator
 An assignment from The Odin Project.
